@@ -25,22 +25,5 @@ public class App {
         // printing to console
         System.out.println("PaPay: " + paPay + "\nMoney Spent: " + movieMoneySpent + "\nRemaining Budget: " + movieRemainingBudget + "\nProfits: " + movieProfit + "\nDirector Royalties: " + directorRoyalties);
 
-
-
-
-
-
-
-
-
-        // tests
-//        System.out.println(director.royaltyEarned(movie.calculateProfit()));
-//        System.out.println(pa.basePay());
-//        System.out.println(movie.payAll(50000));
-//        System.out.println(movie.getBudget());
-
-
-
-
     }
 }
