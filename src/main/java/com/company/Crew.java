@@ -4,8 +4,8 @@ public class Crew extends Person{
     protected String department;
 
     // constructor
-    public Crew(String name, double pay, int hoursWorked, String department) {
-        super(name, pay, hoursWorked);
+    public Crew(String name, double pay, double payEarned, String department) {
+        super(name, pay, payEarned);
         this.department = department;
     }
 

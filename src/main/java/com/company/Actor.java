@@ -4,8 +4,8 @@ public class Actor extends Person{
     protected String role;
 
     // constructor
-    public Actor(String name, double pay, int hoursWorked, String role) {
-        super(name, pay, hoursWorked);
+    public Actor(String name, double pay, double payEarned, String role) {
+        super(name, pay, payEarned);
         this.role = role;
     }
 

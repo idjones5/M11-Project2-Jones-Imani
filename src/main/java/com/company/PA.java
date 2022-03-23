@@ -1,17 +1,22 @@
 package com.company;
 
 public class PA extends Crew{
+    protected int hoursWorked;
 
     // constructor
-    public PA(String name, double pay, int hoursWorked, String department) {
-        super(name, pay, hoursWorked, department);
+    public PA(String name, double pay, double payEarned, int hoursWorked, String department) {
+        super(name, pay, payEarned, department);
+        this.hoursWorked = hoursWorked;
+        this.payEarned = hoursWorked * pay;
     }
 
-    // methods
+    // getters and setters
 
-    public double basePay() {
-        double pay = getPay();
-        double hoursWorked = getHoursWorked();
-        return pay * hoursWorked;
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(int hoursWorked) {
+        this.hoursWorked = hoursWorked;
     }
 }

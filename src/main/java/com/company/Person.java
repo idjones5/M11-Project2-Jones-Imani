@@ -3,13 +3,13 @@ package com.company;
 public abstract class Person {
     protected String name;
     protected double pay;
-    protected int hoursWorked;
+    protected double payEarned;
 
     // constructor
-    public Person(String name, double pay, int hoursWorked) {
+    public Person(String name, double pay, double payEarned) {
         this.name = name;
         this.pay = pay;
-        this.hoursWorked = hoursWorked;
+        this.payEarned = payEarned;
     }
 
     // getters and setters
@@ -22,8 +22,8 @@ public abstract class Person {
         return pay;
     }
 
-    public int getHoursWorked() {
-        return hoursWorked;
+    public double getPayEarned() {
+        return payEarned;
     }
 
     public void setName(String name) {
@@ -34,7 +34,7 @@ public abstract class Person {
         this.pay = pay;
     }
 
-    public void setHoursWorked(int hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void setPayEarned(double payEarned) {
+        this.payEarned = payEarned;
     }
 }

@@ -1,10 +1,12 @@
 package com.company;
 
+import java.util.*;
+
 public class Movie {
     protected String genre;
-    protected String director;
-    protected String actors;
-    private String crew;
+    protected Director director;
+    protected ArrayList<Actor> actors;
+    protected ArrayList<Crew> crew;
     private double budget;
     private double moneySpent;
     private double moneyEarned;
@@ -12,7 +14,7 @@ public class Movie {
 
 
     // constructor
-    public Movie(String genre, String director, String actors, String crew, double budget, double moneySpent, double moneyEarned) {
+    public Movie(String genre, Director director, ArrayList<Actor> actors, ArrayList<Crew> crew, double budget, double moneySpent, double moneyEarned) {
         this.genre = genre;
         this.director = director;
         this.actors = actors;
@@ -28,12 +30,31 @@ public class Movie {
     public double calculateProfit() {
         double moneyEarned = getMoneyEarned();
         double moneySpent = getMoneySpent();
-        return moneyEarned - moneySpent;
+        double budgetTotal = getBudget();
+        return (moneyEarned - moneySpent) + budgetTotal;
     }
 
-    public void payAll(double payTotal) {
+    public double payDay(Director director, ArrayList<Actor> actors, ArrayList<Crew> crew) {
+
+        double totalActorPay = 0;
+        double totalCrewPay = 0;
+        double directorPay = 0;
+        double payTotal = 0;
+
+        directorPay = director.royaltiesEarned(profit);
+
+        for (int i = 0; i < actors.size(); i++) {
+            totalActorPay += actors.get(i).getPayEarned();
+        } for (int i=0; i < crew.size(); i++) {
+            totalCrewPay += crew.get(i).getPayEarned();
+        }
+
+        payTotal = totalActorPay + totalCrewPay + directorPay;
+
         budget -= payTotal;
         moneySpent += payTotal;
+
+        return payTotal;
     }
 
 
@@ -43,15 +64,15 @@ public class Movie {
         return genre;
     }
 
-    public String Director() {
+    public Director Director() {
         return director;
     }
 
-    public String getActors() {
+    public ArrayList<Actor> getActors() {
         return actors;
     }
 
-    public String getCrew() {
+    public ArrayList<Crew> getCrew() {
         return crew;
     }
 
@@ -75,11 +96,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public void setDirector(String director) {
+    public void setDirector(Director director) {
         this.director = director;
     }
 
-    public void setActors(String actors) {
+    public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }
 
@@ -87,7 +108,7 @@ public class Movie {
         this.budget = budget;
     }
 
-    public void setCrew(String crew) {
+    public void setCrew(ArrayList<Crew> crew) {
         this.crew = crew;
     }
 
