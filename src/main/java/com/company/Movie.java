@@ -5,24 +5,21 @@ import java.util.*;
 public class Movie {
     protected String genre;
     protected Director director;
-    protected ArrayList<Actor> actors;
-    protected ArrayList<Crew> crew;
+    protected List<Actor> actors;
+    protected List<Crew> crew;
     private double budget;
     private double moneySpent;
     private double moneyEarned;
     private double profit;
 
-
     // constructor
-    public Movie(String genre, Director director, ArrayList<Actor> actors, ArrayList<Crew> crew, double budget, double moneySpent, double moneyEarned) {
+    public Movie(String genre, Director director, List<Actor> actors, List<Crew> crew, double budget, double moneyEarned) {
         this.genre = genre;
         this.director = director;
         this.actors = actors;
         this.crew = crew;
         this.budget = budget;
-        this.moneySpent = moneySpent;
         this.moneyEarned = moneyEarned;
-        profit = calculateProfit();
     }
 
     // methods
@@ -34,14 +31,12 @@ public class Movie {
         return (moneyEarned - moneySpent) + budgetTotal;
     }
 
-    public double payDay(Director director, ArrayList<Actor> actors, ArrayList<Crew> crew) {
+    public double payDay() {
 
         double totalActorPay = 0;
         double totalCrewPay = 0;
-        double directorPay = 0;
         double payTotal = 0;
 
-        directorPay = director.royaltiesEarned(profit);
 
         for (int i = 0; i < actors.size(); i++) {
             totalActorPay += actors.get(i).getPayEarned();
@@ -49,9 +44,8 @@ public class Movie {
             totalCrewPay += crew.get(i).getPayEarned();
         }
 
-        payTotal = totalActorPay + totalCrewPay + directorPay;
+        payTotal = totalActorPay + totalCrewPay;
 
-        budget -= payTotal;
         moneySpent += payTotal;
 
         return payTotal;
@@ -68,11 +62,11 @@ public class Movie {
         return director;
     }
 
-    public ArrayList<Actor> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 
-    public ArrayList<Crew> getCrew() {
+    public List<Crew> getCrew() {
         return crew;
     }
 
@@ -89,7 +83,7 @@ public class Movie {
     }
 
     public double getProfit() {
-        return profit;
+        return calculateProfit();
     }
 
     public void setGenre(String genre) {
