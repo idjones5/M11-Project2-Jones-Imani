@@ -1,6 +1,6 @@
 package com.company;
 
-public abstract class Person {
+public class Person {
     protected String name;
     protected double pay;
     protected double payEarned;
